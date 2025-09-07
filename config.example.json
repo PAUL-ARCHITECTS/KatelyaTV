@@ -17,13 +17,13 @@
       "api": "https://adult-content-api.com/api.php/provide/vod",
       "name": "成人内容源示例",
       "detail": "https://adult-content-api.com/api.php/provide/vod/?ac=detail&ids={ids}",
-      "is_adult": true
+      "is_adult": false
     },
     "test_adult_source": {
       "api": "https://test-adult-api.com/api.php/provide/vod",
       "name": "测试成人源（用于验证过滤）",
       "detail": "https://test-adult-api.com/api.php/provide/vod/?ac=detail&ids={ids}",
-      "is_adult": true
+      "is_adult": false
     }
   }
 }
