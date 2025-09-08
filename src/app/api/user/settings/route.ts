@@ -28,7 +28,7 @@ export async function GET(_request: NextRequest) {
     
     return NextResponse.json({ 
       settings: settings || {
-        filter_adult_content: true, // 默认开启成人内容过滤
+        filter_adult_content: false, // 默认开启成人内容过滤
         theme: 'auto',
         language: 'zh-CN',
         auto_play: true,
