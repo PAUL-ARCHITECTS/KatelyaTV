@@ -37,7 +37,7 @@ export async function GET(request: NextRequest) {
           username: user.username,
           role: user.role || 'user',
           created_at: user.created_at,
-          filter_adult_content: settings?.filter_adult_content ?? true,
+          filter_adult_content: settings?.filter_adult_content ?? false,
           can_disable_filter: settings?.can_disable_filter ?? true,
           managed_by_admin: settings?.managed_by_admin ?? false,
           last_filter_change: settings?.last_filter_change
@@ -95,7 +95,7 @@ export async function POST(request: NextRequest) {
       case 'force_filter': {
         // 强制开启某用户的成人内容过滤
         const currentSettings = await storage.getUserSettings(username) || {
-          filter_adult_content: true,
+          filter_adult_content: false,
           theme: 'auto' as const,
           language: 'zh-CN',
           auto_play: false,
@@ -119,7 +119,7 @@ export async function POST(request: NextRequest) {
       case 'allow_disable': {
         // 允许用户自己管理过滤设置
         const existingSettings = await storage.getUserSettings(username) || {
-          filter_adult_content: true,
+          filter_adult_content: false,
           theme: 'auto' as const,
           language: 'zh-CN',
           auto_play: false,
@@ -128,7 +128,7 @@ export async function POST(request: NextRequest) {
         
         await storage.setUserSettings(username, {
           ...existingSettings,
-          filter_adult_content: existingSettings.filter_adult_content ?? true,
+          filter_adult_content: existingSettings.filter_adult_content ?? false,
           theme: existingSettings.theme || 'auto',
           language: existingSettings.language || 'zh-CN',
           auto_play: existingSettings.auto_play ?? false,
