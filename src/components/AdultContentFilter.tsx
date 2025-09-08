@@ -12,7 +12,7 @@ const AdultContentFilter: React.FC<AdultContentFilterProps> = ({
   userName, 
   onUpdate 
 }) => {
-  const [isEnabled, setIsEnabled] = useState(true); // 默认开启过滤
+  const [isEnabled, setIsEnabled] = useState(false); // 默认开启过滤
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
